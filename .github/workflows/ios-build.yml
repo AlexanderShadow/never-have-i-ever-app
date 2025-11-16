@@ -1,0 +1,92 @@
+name: Build iOS App
+
+on:
+  workflow_dispatch:  # Manual trigger
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'capacitor.config.json'
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build web app
+        run: npm run build
+      
+      - name: Setup Capacitor
+        run: |
+          npm install -g @capacitor/cli
+          npx cap sync ios
+      
+      - name: Install CocoaPods dependencies
+        run: |
+          cd ios/App
+          pod install
+      
+      - name: Build iOS Archive
+        run: |
+          xcodebuild -workspace ios/App/App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -archivePath build/App.xcarchive \
+            archive \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+      
+      - name: Create Export Options
+        run: |
+          cat > exportOptions.plist << EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>method</key>
+            <string>development</string>
+            <key>teamID</key>
+            <string></string>
+          </dict>
+          </plist>
+          EOF
+      
+      - name: Export IPA (if possible)
+        continue-on-error: true
+        run: |
+          xcodebuild -exportArchive \
+            -archivePath build/App.xcarchive \
+            -exportPath build \
+            -exportOptionsPlist exportOptions.plist || echo "Export failed - archive created but IPA export requires signing"
+      
+      - name: Upload IPA artifact
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: ios-app
+          path: build/*.ipa
+          retention-days: 30
+          if-no-files-found: ignore
+      
+      - name: Upload Archive (fallback)
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: ios-archive
+          path: build/App.xcarchive
+          retention-days: 30
+          if-no-files-found: ignore
