@@ -1,0 +1,176 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.reset-modal {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reset-modal-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.reset-modal-header h2 {
+  color: white;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.reset-modal-content {
+  margin-bottom: 2rem;
+}
+
+.winner-section {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.winner-label {
+  color: #ffd700;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.winners-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.winner-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+.winner-name {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.winner-points {
+  color: #ffd700;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.no-winner-message {
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+.reset-warning {
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.reset-modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.reset-cancel-btn,
+.reset-confirm-btn {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-cancel-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.reset-cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.reset-confirm-btn {
+  background: #ff6b6b;
+  color: white;
+}
+
+.reset-confirm-btn:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+@media (max-width: 768px) {
+  .reset-modal {
+    padding: 1.5rem;
+  }
+
+  .reset-modal-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .winner-label {
+    font-size: 1.1rem;
+  }
+
+  .winner-name {
+    font-size: 1rem;
+  }
+
+  .reset-modal-actions {
+    flex-direction: column;
+  }
+
+  .reset-cancel-btn,
+  .reset-confirm-btn {
+    width: 100%;
+  }
+}
+

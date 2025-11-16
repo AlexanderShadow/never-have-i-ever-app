@@ -1,0 +1,117 @@
+.question-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2rem;
+  margin: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.question-category-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.question-text {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2d3436;
+  line-height: 1.4;
+  margin: 1rem 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-player-indicator {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: rgba(255, 230, 109, 0.2);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.question-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-i-have,
+.btn-i-havent {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  min-height: 60px;
+}
+
+.btn-i-have {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.btn-i-have:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.5);
+}
+
+.btn-i-have:active {
+  transform: translateY(0);
+}
+
+.btn-i-havent {
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+}
+
+.btn-i-havent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(78, 205, 196, 0.5);
+}
+
+.btn-i-havent:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .question-card {
+    padding: 1.5rem;
+    margin: 0.5rem;
+    min-height: 250px;
+  }
+
+  .question-text {
+    font-size: 1.5rem;
+  }
+
+  .question-actions {
+    flex-direction: column;
+  }
+
+  .btn-i-have,
+  .btn-i-havent {
+    width: 100%;
+  }
+}
+
+

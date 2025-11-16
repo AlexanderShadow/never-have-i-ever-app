@@ -1,0 +1,77 @@
+.stats-display {
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.stats-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stat-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stat-rank {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+  min-width: 40px;
+  text-align: center;
+}
+
+.stat-player-info {
+  flex: 1;
+}
+
+.stat-player-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+}
+
+.stat-player-details {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat-detail {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.stat-detail-label {
+  font-size: 0.875rem;
+  color: #636e72;
+  font-weight: 600;
+}
+
+.stat-detail-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.stat-detail-value.points {
+  color: #00b894;
+}
+
+

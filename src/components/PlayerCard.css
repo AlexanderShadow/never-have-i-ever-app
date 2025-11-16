@@ -1,0 +1,106 @@
+.player-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.player-card.current-turn {
+  background: linear-gradient(135deg, #ffe66d 0%, #ffd93d 100%);
+  box-shadow: 0 4px 12px rgba(255, 230, 109, 0.4);
+  transform: scale(1.02);
+  border: 2px solid #ffd93d;
+}
+
+.player-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.player-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3436;
+  margin: 0;
+}
+
+.turn-badge {
+  background: #ff6b6b;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.player-stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #636e72;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.stat-value.points {
+  color: #00b894;
+}
+
+.remove-player-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(214, 48, 49, 0.1);
+  color: #d63031;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.remove-player-btn:hover {
+  background: rgba(214, 48, 49, 0.2);
+  transform: scale(1.1);
+}
+
+.remove-player-btn:active {
+  transform: scale(0.95);
+}
+
+
